@@ -81,6 +81,18 @@ public class Ball {
         }
         
     
+    } 
+    public void increaseSpeed(){
+        if (xSpeed > 0){
+            xSpeed += 2;
+         }else{
+            xSpeed -= 2;
+         }  if (ySpeed > 0){
+            ySpeed += 2;
+         }else{
+            ySpeed -= 2;
+         }
     }
+
 
 }

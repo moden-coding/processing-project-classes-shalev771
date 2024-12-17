@@ -8,7 +8,7 @@ public class App extends PApplet {
     float rectHeight = 40;
     float rectWidth = 200;
     float rectX = 250;
-    float rectY = 450;
+    float rectY = 650;
     ArrayList<Ball> balls = new ArrayList<>();
     int health = 3;
     int score = 0;
@@ -21,15 +21,16 @@ public class App extends PApplet {
         img1 = loadImage("backround.png");
         firstOne = new Ball(400, 300, this);
         balls.add(firstOne);
+         blockOne = new Block(100, 400, null);
 
     }
 
     public void settings() {
-        size(700, 500);
+        size(1000, 700);
     }
 
     public void draw() {
-        image(img1, 0, 0, 700, 500);
+        image(img1, 0, 0, 1000, 700);
         rect(rectX, rectY, rectWidth, rectHeight);
         fill(200, 0, 200);
 
@@ -111,9 +112,10 @@ public class App extends PApplet {
             textSize(40);
             text("High score " + score, 200, 100);
         }
+       block1.appear;
 
     }
-
+  
     public void keyPressed() {
         if (key == 'p') {
             for (int i = 0; i < 1; i++) {
