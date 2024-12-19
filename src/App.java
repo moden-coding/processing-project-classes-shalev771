@@ -12,6 +12,8 @@ public class App extends PApplet {
     ArrayList<Ball> balls = new ArrayList<>();
     int health = 3;
     int score = 0;
+    Block blockOne;
+    ArrayList<Block> blocks = new ArrayList<>();
 
     public static void main(String[] args) {
         PApplet.main("App");
@@ -21,7 +23,7 @@ public class App extends PApplet {
         img1 = loadImage("backround.png");
         firstOne = new Ball(400, 300, this);
         balls.add(firstOne);
-         blockOne = new Block(100, 400, null);
+        blockOne = new Block(100, 400, this);
 
     }
 
@@ -49,6 +51,25 @@ public class App extends PApplet {
             }
 
         }
+        if(random(1) < .008){
+            Block b = new Block((int) random(500), (int) (10), this);
+            blocks.add(b);
+        }
+        for (int i = 0; i < blocks.size(); i++) {
+            Block b = blocks.get(i);
+            b.appear();
+            b.move();
+            if (b.checkBlock(rectX, rectY, rectHeight, rectWidth)) {
+                score--;
+
+            }
+            if (b.offScreen()) {
+                blocks.remove(b);
+            } 
+            if (b.checkBlock(rectX, rectY, rectHeight, rectWidth))
+            blocks.remove(b);
+        }
+       
         fill(255);
         textSize(30);
         text("health " + health, 50, 50);
@@ -73,7 +94,7 @@ public class App extends PApplet {
             fill(255);
             textSize(100);
             text("Level 1", 120, 300);
-            
+
         }
 
         if (score == 10) {
@@ -107,15 +128,15 @@ public class App extends PApplet {
             text("Final Level", 120, 300);
         }
 
-        if (health == 0){
+        if (health == 0) {
             fill(240);
             textSize(40);
             text("High score " + score, 200, 100);
         }
-       block1.appear;
+        
 
     }
-  
+
     public void keyPressed() {
         if (key == 'p') {
             for (int i = 0; i < 1; i++) {
