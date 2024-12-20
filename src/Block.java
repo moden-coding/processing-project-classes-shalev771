@@ -27,9 +27,9 @@ public void move(){
   
 }
 
-public boolean checkBlock(float playerX, float playerY, float playerWidth, float rectWidth){
+public boolean checkBlock(float rectX, float rectY, float playerWidth, float rectWidth){
 
-  if (x >= playerX && y  >= playerY && playerX + playerWidth >= x) {
+  if (x >= rectX && y  >= rectY && rectX + playerWidth >= x) {
       System.out.println("changing y speed");
       rectWidth --;
       return true;
