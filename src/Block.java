@@ -11,13 +11,13 @@ public class Block {
   public Block(int xPos, int yPos, PApplet d) {
     x = xPos;
     y = yPos;
-    size = 60;
+    size = 30;
     store = d;
     ySpeed = 5;
     xSpeed = 5;
   }
 
-
+// makes block apearin app.java
 public void appear() {
   store.rect(x, y,  size, size);
 }
@@ -26,10 +26,10 @@ public void move(){
  // x += xSpeed;
   
 }
-
+// method to check a collision between the balls and the block
 public boolean checkBlock(float rectX, float rectY, float playerWidth, float rectWidth){
 
-  if (x >= rectX && y  >= rectY && rectX + playerWidth >= x) {
+  if (x == rectX && y  == rectY && rectX + playerWidth == x) {
       System.out.println("changing y speed");
       rectWidth --;
       return true;
@@ -39,6 +39,7 @@ public boolean checkBlock(float rectX, float rectY, float playerWidth, float rec
   
 
 } 
+// method to check if block goes offscreen
 public boolean offScreen(){
   if (y > store.height){
     //a.remove();

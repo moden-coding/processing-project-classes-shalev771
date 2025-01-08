@@ -57,6 +57,7 @@ public class App extends PApplet {
             }
 
         }
+        // array list to spawn in blocks that should cause damage they spawn in 0.006/10 seconds
         if (random(1) < .006) {
             Block b = new Block((int) random(1000), (int) random(10), this);
             blocks.add(b);
@@ -148,7 +149,8 @@ public class App extends PApplet {
         }
 
     }
-
+    // arrays list for balls to spawn in a ball when the key 'p' is pressed
+    // and moving the bouncer left and right with arrow keys.
     public void keyPressed() {
         if (key == 'p') {
             for (int i = 0; i < 1; i++) {
@@ -169,7 +171,7 @@ public class App extends PApplet {
         }
 
     }
-
+    // file reading to track high score
     public int readFile() {
         try (Scanner scanner = new Scanner(Paths.get("file.txt"))) {
 
@@ -186,7 +188,7 @@ public class App extends PApplet {
         return currentHighScore;
 
     }
-
+    
     public void writeFile(int score) {
         // int numberToSave = 123; // This is the integer we want to save
         String filePath = "output.txt"; // Path to the text file
@@ -201,7 +203,7 @@ public class App extends PApplet {
         }
 
     }
-
+    // starts game over with full health and 0 score.
     public void resetGame() {
         health = 3;
         score = 0;

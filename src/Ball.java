@@ -31,7 +31,7 @@ public class Ball {
        //  ballExists = false;
        // }
   //  }
-
+    // method to get the ball to apear
     public void display() {
         canvas.fill(color);
         canvas.circle(x, y, size);
@@ -58,7 +58,8 @@ public class Ball {
         
 
     }
-
+    // must remove the ball from the array list when it go0es off screen
+    // because it would still be tracking the ball.
     public boolean goesOffScreen(){
         if (y > canvas.height){
             //a.remove();
@@ -69,7 +70,7 @@ public class Ball {
         return false;
     }
     
-
+    // to reflect the ball when it collides with the bouncer.
     public boolean checkBall(float playerX, float playerY, float playerWidth){
 
         if (x >= playerX && y >= playerY && playerX + playerWidth >= x) {
